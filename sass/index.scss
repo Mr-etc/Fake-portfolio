@@ -1,0 +1,199 @@
+@import "adapt";
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    // font-size: 16px;
+    color: #f0f0f0;
+    @include font-size(12, 16);
+}
+[class*="__container"]{
+    width: 100%;
+    max-width: 1230px;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin: 0 auto;
+}
+.viewport{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    & .main{
+        flex: 1 0 auto;
+    }
+}
+.header{
+    position: fixed;
+    width: 100%;
+    background-color: #BE3144;
+    box-shadow: 0 2px 0 rgba($color: #000000, $alpha: .4);
+    z-index: 10;
+}
+a{
+    text-decoration: none;
+    color: #f0f0f0;
+}
+.nav{
+    &__items{
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__item{
+        transition: background-color .2s ease;
+        border-radius: 5px;
+        &:hover{
+            background-color: #45567d;
+        }
+        & a{
+            display: block;
+            font-size: 1.375rem;
+            padding: 1.25rem;
+        }
+    }
+}
+.title-of-section{
+    text-align: center;
+    padding: 0 0 60px;
+    &__text{
+        display: inline-block;
+        font-size: 2.625em;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
+.project-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;//40px
+    justify-content: center;
+    &__item{
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 30%;
+        border: 1px solid #303841;
+        transition: transform .4s ease, box-shadow .2s linear;
+        @include for_size(tablet){
+            flex: 0 1 40%;
+        }
+        @include for_size(phone){
+            flex: 0 1 100%;
+        }
+        &:hover{
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba($color: #000000, $alpha: .4);
+            & .project-grid__link::before,& .project-grid__link::after{
+                opacity: 1;
+            }
+        }
+    }
+    &__image{
+        flex: 1 0 auto;
+        & img{
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__link{
+        display: block;
+        background-color: #303841;
+        text-align: center;
+        padding: 20px 5px;
+        font-size: 1.25em;
+        &::before, &::after{
+            opacity: 0;
+            padding: 0 10px;
+            color: orange;
+            transition: opacity .4s ease;
+        }
+        &::before{
+            content: "<";
+        }
+        &::after{
+            content: "/>";
+        }
+    }
+}
+section{
+    padding: 3.75em 0;
+}
+.heading-bl{
+    text-align: center;
+    &__text{
+        font-size: 3.75em;
+    }
+    &__desc{
+        font-size: 1.875em;
+        font-style: italic;
+    }
+}
+.section{
+    &-welcome{
+        position: relative;
+        background: rgb(55,58,61);
+        background: linear-gradient(90deg, rgba(55,58,61,1) 0%, rgba(26,25,27,1) 100%);
+        height: 100vh;
+        & .welcome-title{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            &__desc{
+                color: #be3144;
+            }
+        }
+    }
+    &-projects{
+        background-color: #45567d;
+    }
+    &-together{
+        height: 80vh;
+        background-color: #303841;
+        &__container{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        & .together{
+            &-heading{
+                & .heading-bl__desc{
+                    font-size: 1.125em;
+                }
+            }
+            &-links{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 30px;
+                margin: 3.125rem 0;
+                &__item{
+                    // padding: 3.125rem 0;
+                    font-size: 1.5em;
+                    text-shadow: 2px 2px 1px #1f1f1f;
+                    // flex: 1 0 100%;
+                    & a{
+                        position: relative;
+                        top: 0;
+                        transition: top .3s ease;
+                        &:hover{
+                            color: #ffa3a3;
+                            top: -10px;
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+.footer{
+    border-top: 4px solid #be3144;
+    background-color: #303841;
+    &__container{
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.125em;
+        padding: 2.5em 0;
+        align-items: center;
+    }
+    &__copyright{
+        white-space: nowrap;
+    }
+}

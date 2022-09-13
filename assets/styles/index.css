@@ -1,0 +1,242 @@
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0f0f0;
+}
+
+@media (min-width: 770px) {
+  html {
+    font-size: calc(12px + 4 * (100vw / 1200));
+  }
+}
+
+@media (max-width: 770px) {
+  html {
+    font-size: calc(12px + 11.6 * ((100vw - 370px) / 1200));
+  }
+}
+
+[class*="__container"] {
+  width: 100%;
+  max-width: 1230px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin: 0 auto;
+}
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.viewport .main {
+  flex: 1 0 auto;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: #BE3144;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+a {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+
+.nav__items {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav__item {
+  transition: background-color .2s ease;
+  border-radius: 5px;
+}
+
+.nav__item:hover {
+  background-color: #45567d;
+}
+
+.nav__item a {
+  display: block;
+  font-size: 1.375rem;
+  padding: 1.25rem;
+}
+
+.title-of-section {
+  text-align: center;
+  padding: 0 0 60px;
+}
+
+.title-of-section__text {
+  display: inline-block;
+  font-size: 2.625em;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.project-grid__item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 30%;
+  border: 1px solid #303841;
+  transition: transform .4s ease, box-shadow .2s linear;
+}
+
+@media (max-width: 900px) {
+  .project-grid__item {
+    flex: 0 1 40%;
+  }
+}
+
+@media (max-width: 570px) {
+  .project-grid__item {
+    flex: 0 1 100%;
+  }
+}
+
+.project-grid__item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.project-grid__item:hover .project-grid__link::before, .project-grid__item:hover .project-grid__link::after {
+  opacity: 1;
+}
+
+.project-grid__image {
+  flex: 1 0 auto;
+}
+
+.project-grid__image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-grid__link {
+  display: block;
+  background-color: #303841;
+  text-align: center;
+  padding: 20px 5px;
+  font-size: 1.25em;
+}
+
+.project-grid__link::before, .project-grid__link::after {
+  opacity: 0;
+  padding: 0 10px;
+  color: orange;
+  transition: opacity .4s ease;
+}
+
+.project-grid__link::before {
+  content: "<";
+}
+
+.project-grid__link::after {
+  content: "/>";
+}
+
+section {
+  padding: 3.75em 0;
+}
+
+.heading-bl {
+  text-align: center;
+}
+
+.heading-bl__text {
+  font-size: 3.75em;
+}
+
+.heading-bl__desc {
+  font-size: 1.875em;
+  font-style: italic;
+}
+
+.section-welcome {
+  position: relative;
+  background: #373a3d;
+  background: linear-gradient(90deg, #373a3d 0%, #1a191b 100%);
+  height: 100vh;
+}
+
+.section-welcome .welcome-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section-welcome .welcome-title__desc {
+  color: #be3144;
+}
+
+.section-projects {
+  background-color: #45567d;
+}
+
+.section-together {
+  height: 80vh;
+  background-color: #303841;
+}
+
+.section-together__container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section-together .together-heading .heading-bl__desc {
+  font-size: 1.125em;
+}
+
+.section-together .together-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 3.125rem 0;
+}
+
+.section-together .together-links__item {
+  font-size: 1.5em;
+  text-shadow: 2px 2px 1px #1f1f1f;
+}
+
+.section-together .together-links__item a {
+  position: relative;
+  top: 0;
+  transition: top .3s ease;
+}
+
+.section-together .together-links__item a:hover {
+  color: #ffa3a3;
+  top: -10px;
+  padding-bottom: 10px;
+}
+
+.footer {
+  border-top: 4px solid #be3144;
+  background-color: #303841;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.125em;
+  padding: 2.5em 0;
+  align-items: center;
+}
+
+.footer__copyright {
+  white-space: nowrap;
+}
